@@ -1,27 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
 :root {
-  /* Primary Color */
   --black: #000000;
-  /* Secondary Color */
   --gray: #808080;
-  /* Topbar colors: */
   --orange: #fe5d20;
   --purple: #8071d0;
-  /* Blurr Animation" card: */
   --light-orange: #fd6534;
-  /* Your Account" button: */
   --pink: #ffd8db;
-  /* Dmm design" card: */
   --light-pink: #fed7da;
   --light-purple: #a389cc;
-  /* New Account" button: */
   --dark-purple: #5243c0;
-  /* Illustration" card: */
   --green: #9ed095;
-  /* Refunds" card: */
   --yellow: #ffe4a0;
-  /* Background Color */
   --white: #fff;
 }
 
@@ -30,6 +20,18 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+.button {
+  padding: 20px 35px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease 0s;
 }
 
 li,
@@ -40,95 +42,135 @@ button {
   text-decoration: none;
 }
 
-header {
+.desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 5%;
+  width: 100%;
 }
 
-.logo {
-  max-width: 10%;
+header {
+  margin: 30px 70px;
+  max-width: 100%;
+}
+
+header .logo {
+  width: 180px;
   cursor: pointer;
 }
 
-.nav_links {
-  list-style: none;
+header .logo img {
+  width: 100%;
 }
 
-.nav_links li {
+header nav ul li {
   display: inline-block;
-  padding: 0px 40px;
+  margin: 0 40px;
 }
 
-.nav_links li .active {
+header nav ul li a:hover {
   border-bottom: 3px solid var(--dark-purple);
   color: var(--black);
 }
 
-.nav_links li a {
+header nav ul li a {
   color: var(--gray);
 }
 
-.nav_links li a:hover {
+header a.account {
+  color: var(--dark-purple);
+  padding: 20px 35px;
+  background-color: var(--pink);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease 0s;
+}
+
+header nav ul li a.active {
   border-bottom: 3px solid var(--dark-purple);
   color: var(--black);
 }
 
-header button {
-  color: var(--dark-purple);
-  padding: 22px 40px;
-  background-color: var(--pink);
-  border: none;
-  border-radius: 28px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  margin-right: 50px;
-}
-
-button:hover {
+header a.account:hover {
   background-color: #f15f60;
   color: var(--white);
 }
 
-.hero {
-  padding: 2% 15%;
-  display: inline-grid;
-  column-gap: 100px;
+@media only screen and (max-width: 1010px) {
+  header {
+    margin: 30px 70px;
+  }
+  header nav {
+    display: none;
+  }
 }
 
-.hero .main {
-  grid-column: 1;
+@media only screen and (max-width: 600px) {
+  header {
+    margin: 20px;
+  }
+  header .logo {
+    width: 100px;
+  }
+  header a.account {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+  header a.account {
+    background-color: #f15f60;
+    color: var(--white);
+  }
 }
 
-.hero .main .heading {
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+main .left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
+main .left .heading {
   font-size: 5rem;
+  width: 300px;
 }
 
-.hero .main .subheading {
+main .left .subheading {
   font-size: 17px;
+  width: 500px;
   line-height: 30px;
   margin-top: 10px;
   color: var(--gray);
 }
 
-.hero .main span {
+main .left span {
   height: 20px;
   width: 20px;
   color: var(--dark-purple);
 }
 
-.hero .co_main {
-  grid-column: 2;
-}
-
-.hero .main .acc {
+main .left .buttons {
   display: flex;
   align-items: center;
   margin-top: 30px;
 }
 
-.hero .main .acc button {
+main .left .buttons a {
   color: var(--white);
   padding: 22px 40px;
   background-color: var(--dark-purple);
@@ -138,39 +180,36 @@ button:hover {
   transition: all 0.3s ease 0s;
 }
 
-.hero .main button:hover {
-  background-color: #8071d0;
-}
-
-.hero .main .acc img {
+main .left .buttons img {
   margin-left: 10px;
   cursor: pointer;
   border-radius: 40%;
 }
 
-.hero .main .acc img:hover {
+main .left .buttons img:hover {
   filter: brightness(90%);
 }
 
-.hero .main .table {
+/* ********** Table CSS ********** */
+
+main .left .table {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  width: 80%;
 }
 
-.hero .main .table .card {
+main .left .table .card {
   margin-top: 10px;
   cursor: pointer;
 }
 
-.hero .main .table .card h3,
+main .left .table .card h3,
 p {
   font-weight: 500;
 }
 
-.hero .main .table .card {
+main .left .table .card {
   background-color: #f8f8f8;
   display: flex;
   align-items: center;
@@ -180,56 +219,68 @@ p {
   border-radius: 20px;
 }
 
-.hero .main .table .card:hover {
+main .left .table .card:hover {
   background-color: var(--white);
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
-.hero .main .table .card .info {
+main .left .table .card .info {
   display: flex;
 }
 
-.hero .main .table .card .info h3 {
+main .left .table .card .info2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+main .left .table .card .info h3 {
   padding-left: 10px;
   width: 200px;
 }
 
-.hero .main .table .card .color {
+main .left .table .card .color {
   width: 20px;
   height: 10px;
   border-radius: 10px;
   background-color: var(--pink);
 }
 
-.hero .main .table .card .color3 {
+main .left .table .card .color3 {
   width: 20px;
   height: 10px;
   border-radius: 10px;
   background-color: var(--green);
 }
 
-.hero .main .table .card .color4 {
+main .left .table .card .color4 {
   width: 20px;
   height: 10px;
   border-radius: 10px;
   background-color: var(--yellow);
 }
 
-.hero .main .table .card p {
+main .left .table .card p {
   color: var(--gray);
 }
 
-.hero .main .table .card2 {
+main .left .table .card2 {
   margin-top: 10px;
   cursor: pointer;
 }
 
-.hero .main .table .card2 h3,
+main .left .table .card2 .info2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+main .left .table .card2 h3,
 p {
   font-weight: 500;
 }
 
-.hero .main .table .card2 {
+main .left .table .card2 {
   background-color: var(--white);
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   display: flex;
@@ -240,22 +291,103 @@ p {
   border-radius: 20px;
 }
 
-.hero .main .table .card2 .info {
+main .left .table .card2 .info {
   display: flex;
 }
 
-.hero .main .table .card2 .info h3 {
+main .left .table .card2 .info h3 {
   padding-left: 10px;
   width: 200px;
 }
 
-.hero .main .table .card2 .color {
+main .left .table .card2 .color {
   width: 20px;
   height: 10px;
   border-radius: 10px;
   background-color: var(--orange);
 }
 
-.hero .main .table .card2 p {
+main .left .table .card2 p {
   color: var(--gray);
+}
+
+main .right {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1241px) {
+  header {
+    margin: 20px;
+  }
+  main .left .heading {
+    font-size: 60px;
+  }
+  main .left .subheading {
+    font-size: 16px;
+    width: 400px;
+  }
+  main .right img {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  main .left .heading {
+    font-size: 30px;
+    width: 330px;
+  }
+  main .left .subheading {
+    font-size: 12px;
+    width: 330px;
+  }
+  main .container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+  }
+  main .right img {
+    max-width: 300px;
+  }
+  .container .left .buttons a {
+    padding: 20px 25px;
+    font-size: 12px;
+    border-radius: 23px;
+    color: var(--white);
+    background-color: var(--dark-purple);
+  }
+  .left .table {
+    width: 330px;
+    margin-bottom: 20px;
+  }
+  main .left .table .card {
+    width: auto;
+  }
+  main .left .table .card .info {
+    align-items: center;
+  }
+  main .left .table .card .info h3 {
+    font-size: 15px;
+    width: 120px;
+  }
+  main .left .table .card .info2 {
+    font-size: 13px;
+    width: 120px;
+  }
+  main .left .table .card2 {
+    width: auto;
+  }
+  main .left .table .card2 .info {
+    align-items: center;
+  }
+  main .left .table .card2 .info h3 {
+    font-size: 15px;
+    width: 130px;
+  }
+  main .left .table .card2 .info2 {
+    font-size: 13px;
+    width: 120px;
+  }
 }
